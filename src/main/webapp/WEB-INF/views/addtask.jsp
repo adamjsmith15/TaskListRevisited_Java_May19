@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/yeti/bootstrap.min.css" rel="stylesheet" integrity="sha384-w6tc0TXjTUnYHwVwGgnYyV12wbRoJQo9iMlC2KdkdmVvntGgzT9jvqNEF/uKaF4m" crossorigin="anonymous">
 <meta charset="UTF-8">
 <title>Add task</title>
 </head>
@@ -32,6 +33,7 @@ Due Date:<input type="date" name="duedate" required>
 			</tbody>
 			</table>
 			</div>
+<a href="/">Home</a>
 <script  src="/script.js"></script>
 </body>
 </html>

@@ -69,5 +69,9 @@ public class TaskListController {
 		mv.addObject("users",userRep.findAll());
 		return mv;
 	}
+	@RequestMapping("/searchlistpage")
+	public ModelAndView searchListPage() {
+		return new ModelAndView("search-list");
+	}
 
 }

@@ -37,7 +37,6 @@
 						<td>${ list.description }</td>
 						<td>${ list.duedate } </td>
 						<td>${ list.formattedComplete }</td> 
-						<td><a href="edit?id=${ list.id }">Edit</a></td>
 						<td><a href="complete?id=${ list.id }" >Complete</a></td>
 						</tr>
 						</c:forEach>
@@ -52,5 +51,7 @@
 
 		</table>
 		</div>
+		
+		<a href="/">Home</a>
 </body>
 </html>

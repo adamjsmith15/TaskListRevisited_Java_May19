@@ -18,5 +18,7 @@ Password: <input type="password" name="password">
 <a href="nouser">View Task List Without Logging In</a>
 <br>
 <a href="gotoaddtasks">Add a Task</a>
+<br>
+<a href="searchlistpage">Search List</a>
 </body>
 </html>
