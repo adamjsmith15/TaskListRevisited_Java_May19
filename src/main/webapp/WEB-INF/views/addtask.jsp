@@ -8,24 +8,23 @@
 <title>Add task</title>
 </head>
 <body>
-<p>Please use the id listed below to assign this task to that person</p>
-<form action="addtask">
-UserID: <input type="text" name="userid">
-Description: <input type="text" name="description">
-Due Date:<input type="date" name="duedate">
+<p>Adding task for ${ add.email }</p>
+<form action="addtask" onsubmit="return validateId();">
+<input id="id" type="hidden" name="userid" value="${ add.id }">
+Description: <input type="text" name="description" required>
+Due Date:<input type="date" name="duedate" required>
 <input type="submit" value="Submit">
 </form>
 	<div class="container">
 		<table class="table" border=1>
 			<thead>
 				<tr>
-					<td>Id</td>
 					<td>Email</td>
 				</tr>
 				<c:forEach items="${ users }" var ="u">
 				<tr>
-				<td>${ u.id }</td>
 				<td>${ u.email }</td>
+				<td><a href="addusertask?id=${ u.id }">Assign Task</a></td>
 				</tr>
 				</c:forEach>
 			</thead>
@@ -33,6 +32,6 @@ Due Date:<input type="date" name="duedate">
 			</tbody>
 			</table>
 			</div>
-
+<script  src="/script.js"></script>
 </body>
 </html>

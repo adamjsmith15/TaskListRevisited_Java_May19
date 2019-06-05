@@ -11,22 +11,41 @@
 <body>
 <h1>I am a task list!</h1>
 	<div class="container">
-		<table class="table" border=1>
+		<table class="table" border=3>
 			<thead>
 				<tr>
 					<td>Name</td>
-					<td>Description</td>
-					<td>Due Date</td>
-					<td>Completed</td>
+					<td>Tasks</td>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${ task }" var="item">
 					<tr>
 						<td>${ item.email }</td>
-						<c:forEach items="${ item.tasks} " var="list"> <td>${ list }</td></c:forEach>
-						<td><a href="edit?id=${ item.id }">Edit</a></td>
-						<td><a href="complete?id=${ item.id }" >Complete</a></td>
+						<td>
+						<table border = 1>
+							<thead>
+								<tr>
+									<td>Description</td>
+									<td>Due Date</td>
+									<td>Completed</td>
+								</tr>
+							</thead>
+						
+						<c:forEach items="${ item.tasks}" var="list"> 
+						<tr>
+						<td>${ list.description }</td>
+						<td>${ list.duedate } </td>
+						<td>${ list.formattedComplete }</td> 
+						<td><a href="edit?id=${ list.id }">Edit</a></td>
+						<td><a href="complete?id=${ list.id }" >Complete</a></td>
+						</tr>
+						</c:forEach>
+						
+						</table>
+						</td>
+						<td><a href="addusertask?id=${ item.id }">Add Task</a></td>
+						<td><a href="deleteuser?id=${ item.id }" >Delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

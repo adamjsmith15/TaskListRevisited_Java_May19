@@ -12,7 +12,7 @@
 <p>Please enter your e mail and password to log into the task list, if you are not in the list, a new user will be created.</p>
 <form action="adduser">
 Email: <input type="text" name="email">
-Password: <input type="text" name="password">
+Password: <input type="password" name="password">
 <input type="submit" value="Submit">
 </form>
 <a href="nouser">View Task List Without Logging In</a>

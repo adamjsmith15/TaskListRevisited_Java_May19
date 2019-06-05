@@ -1,5 +1,6 @@
 package com.tasklist.TaskListRevisited.objects;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,6 +25,7 @@ public class Task {
 	// this join name= id is referencing the user pojo
 	@JoinColumn(name="userid", insertable = false, updatable = false)
 	private User user;
+	private String formattedcomplete;
 	
 	public Task() {
 		
@@ -35,6 +37,7 @@ public class Task {
 		this.description = description;
 		this.duedate = duedate;
 		this.completed = completed;
+		setFormattedComplete(completed);
 	}
 	
 	public Task(Integer userid, String description, String duedate, Integer completed) {
@@ -42,12 +45,26 @@ public class Task {
 		this.description = description;
 		this.duedate = duedate;
 		this.completed = completed;
+		setFormattedComplete(completed);
 	}
 	public Task(Integer userid, String description, String duedate) {
 		this.userid = userid;
 		this.description = description;
 		this.duedate = duedate;
 		this.completed = 0;
+		setFormattedComplete(completed);
+	}
+	
+
+	public Task(Integer id, Integer userid, String description, String duedate, Integer completed, User user,
+			String formattedComplete) {
+		this.id = id;
+		this.userid = userid;
+		this.description = description;
+		this.duedate = duedate;
+		this.completed = 0;
+		this.user = user;
+		this.formattedcomplete = "Not Complete";
 	}
 
 	public Integer getId() {
@@ -97,6 +114,20 @@ public class Task {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+
+	public String getFormattedComplete() {
+		return formattedcomplete;
+	}
+
+	public void setFormattedComplete(Integer completed) {
+		if(completed < 1) {
+			this.formattedcomplete = "Not Complete";
+		}else {
+			this.formattedcomplete = "Complete";
+		}
+
 	}
 
 	@Override

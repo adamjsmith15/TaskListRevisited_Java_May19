@@ -50,8 +50,24 @@ public class TaskListController {
 	public ModelAndView completeTask(@RequestParam("id") Integer id) {
 		Task t = taskRep.findById(id).get();
 		t.setCompleted(1);
+		t.setFormattedComplete(1);
 		taskRep.save(t);
 		return new ModelAndView("redirect:/nouser");
+	}
+	
+	@RequestMapping("/deleteuser")
+	public ModelAndView deleteUser(@RequestParam("id") Integer id) {
+		User u = userRep.findById(id).get();
+		userRep.delete(u);
+		return new ModelAndView("redirect:/nouser");
+	}
+	
+	@RequestMapping("/addusertask")
+	public ModelAndView addTaskByUser(@RequestParam("id") Integer id) {
+		User u = userRep.findById(id).get();
+		ModelAndView mv = new ModelAndView("addtask", "add", u);
+		mv.addObject("users",userRep.findAll());
+		return mv;
 	}
 
 }
